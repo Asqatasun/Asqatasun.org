@@ -97,3 +97,12 @@ gulp.task('default', ['copyfiles', 'copyfonts', 'imagemin', 'jshint', 'htmlpage'
         gulp.run('styles');
     });
 });
+
+// gulp task: RUN
+gulp.task('0run', ['copyfiles', 'copyfonts', 'imagemin', 'jshint', 'htmlpage', 'scripts', 'styles'], function () {
+    gulp.run('copyfiles');
+    gulp.run('copyfonts');
+    gulp.run('htmlpage');
+    gulp.run('jshint', 'scripts');
+    gulp.run('styles');
+});
