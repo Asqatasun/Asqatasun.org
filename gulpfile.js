@@ -76,7 +76,6 @@ gulp.task('default', ['copyfiles', 'copyfonts', 'imagemin', 'jshint', 'htmlpage'
     // watch for .htaccess changes
     gulp.watch('./src/.htaccess', function () {
         gulp.run('copyfiles');
-        gulp.run('copyfonts');
     });
     // watch for fonts changes
     gulp.watch('./src/Fonts/*', function () {
