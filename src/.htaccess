@@ -1,0 +1,15 @@
+######################################################################################
+#### Réecriture d'URL ################################################################
+######################################################################################
+
+	# Activation du moteur de réecriture
+	###########################################
+	RewriteEngine On
+    
+	# Forcer l'usage d'un seul domaine pour les URL avec ou sans www
+	#########################################################
+	# /!\ 	Forcer la redirection permanente (code HTTP 301)
+	# 		du sous-domaine (www.asqatasun.org)
+	# 		vers vers le domaine asqatasun.org
+	RewriteCond %{HTTP_HOST} ^www.asqatasun.org$ [NC]
+	RewriteRule ^(.*)   http://asqatasun.org/$1  [QSA,L,R=301]
