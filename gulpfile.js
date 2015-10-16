@@ -52,27 +52,36 @@ gulp.task('scripts', function () {
 
 // CSS concat, auto-prefix and minify
 gulp.task('styles', function () {
-    gulp.src(['./src/CSS/*.css'])
+    var mySrc = './src/CSS/*.css',
+            myDst = './build/CSS/';
+    gulp.src(mySrc)
+            .pipe(changed(myDst))
             .pipe(concat('Styles.css'))
             .pipe(autoprefix('last 2 versions'))
             .pipe(minifyCSS())
-            .pipe(gulp.dest('./build/CSS/'));
+            .pipe(gulp.dest(myDst));
 });
 
 // Copy other files
 gulp.task('copyfiles', function () {
-    gulp.src(['./src/.htaccess'])
-            .pipe(gulp.dest('./build/'));
+    var mySrc = './src/.htaccess',
+            myDst = './build/';
+    gulp.src(mySrc)
+            .pipe(changed(myDst))
+            .pipe(gulp.dest(myDst));
 });
 
 // Copy other files
 gulp.task('copyfonts', function () {
-    gulp.src(['./src/Fonts/*'])
-            .pipe(gulp.dest('./build/Fonts/'));
+    var mySrc = './src/Fonts/*',
+            myDst = './build/Fonts/';
+    gulp.src(mySrc)
+            .pipe(changed(myDst))
+            .pipe(gulp.dest(myDst));
 });
 
 // default gulp task
-gulp.task('default', ['copyfiles', 'copyfonts', 'imagemin', 'jshint', 'htmlpage', 'scripts', 'styles'], function() {
+gulp.task('default', ['copyfiles', 'copyfonts', 'imagemin', 'jshint', 'htmlpage', 'scripts', 'styles'], function () {
     // watch for .htaccess changes
     gulp.watch('./src/.htaccess', function () {
         gulp.run('copyfiles');
@@ -81,7 +90,7 @@ gulp.task('default', ['copyfiles', 'copyfonts', 'imagemin', 'jshint', 'htmlpage'
     gulp.watch('./src/Fonts/*', function () {
         gulp.run('copyfonts');
     });
-    
+
     // watch for HTML changes
     gulp.watch('./src/*.html', function () {
         gulp.run('htmlpage');
