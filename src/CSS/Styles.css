@@ -11,8 +11,9 @@
 h1 {
     font-family: 	'Cinzel-Regular', serif;
     text-align:  	center;
-    font-size:   	3em;
-    letter-spacing: 	0.1em;
+    font-size:   	7em;
+    font-weight: 500;
+    letter-spacing: 5px;
 }
 h1 span {
     font-size: 1.2em;
