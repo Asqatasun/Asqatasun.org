@@ -9,8 +9,12 @@
 }
 body {
       font-family: 	 sans-serif;
+      margin:            0;
+      padding:           0;
 }
 h1 {
+
+    margin: 		0.2em 0 ;
     font-family: 	'Cinzel-Regular', serif;
     text-align:  	center;
     font-size:   	7em;
@@ -20,10 +24,30 @@ h1 {
 h1 span {
     font-size: 1.2em;
 }
+#top-navbar {
+    background-color: #1B1F20;
+    padding: 0px 5em;
+}
+	#top-navbar a.nav-link {
+	    display: inline-block;
+	    padding: 0.9em 2em 0.3em;
+	    color: #FFF;
+	    letter-spacing: 0.1em;
+  	    text-decoration: none;
+	}
+	#top-navbar a.nav-link:hover, 
+	#top-navbar a.selected {
+	    background-color: #0B0D0D;
+	}
+	#top-navbar a.selected {
+    	font-family: 	'Cinzel-Regular', serif; 
+	}
+
+
 
 #social-link {
     text-align: center;
-    margin: 4em 0 0 0;
+    margin: 2em 0 0 0;
 }
 #social-link img {
     width:80px; /* Max 120px  */
@@ -38,3 +62,4 @@ h1 span {
 .block {
     text-align: center;
 }
+
