@@ -24,26 +24,40 @@ h1 {
 h1 span {
     font-size: 1.2em;
 }
+
+
 #top-navbar {
     background-color: #1B1F20;
-    padding: 0px 5em;
+    padding:0 ;
 }
-	#top-navbar a.nav-link {
-	    display: inline-block;
-	    padding: 0.9em 2em 0.3em;
-	    color: #FFF;
-	    letter-spacing: 0.1em;
-  	    text-decoration: none;
-	}
-	#top-navbar a.nav-link:hover, 
-	#top-navbar a.selected {
-	    background-color: #0B0D0D;
-	}
-	#top-navbar a.selected {
-    	font-family: 	'Cinzel-Regular', serif; 
-	}
+    #website {
+      /* font-family: 	'Cinzel-Regular'; */
+    }
+    #top-navbar a.nav-link {
+        display: inline-block;
+        border-bottom: 0.3em #0162A4 solid; 
+        padding: 0.9em 2em 0.3em;
+	/* height:  1.1em;  */
+        color: white;
+        letter-spacing: 0.1em;
+ 	text-decoration: none;
+    }
+        #top-navbar a.nav-link:hover, 
+        #top-navbar a.selected {
+            background-color: #0B0D0D;
+            border-bottom-color: silver ;
+        }
+        #top-navbar a.selected, 
+        #top-navbar a.selected:hover {
+           background-color:#0162A4;
+           border-bottom-color:#0162A4;
+        }   
 
-
+	#top-navbar .wrap {
+		max-width: 1110px;
+		margin-right: auto;
+		margin-left: auto;
+	}
 
 #social-link {
     text-align: center;
