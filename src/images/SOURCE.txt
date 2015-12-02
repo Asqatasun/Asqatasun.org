@@ -1,2 +1,9 @@
 social-*.png	http://www.socicon.com/generator.php
+
+	sauf pour scoopit et rss-v2
+	http://www.iconarchive.com/show/basic-round-social-icons-by-sicons.html
+
+
 forum-*.png     http://www.discourse.org/
+
+
