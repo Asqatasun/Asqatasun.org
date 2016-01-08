@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var changed = require('gulp-changed');
 var imagemin = require('gulp-imagemin');
-var minifyHTML = require('gulp-minify-html');
+var htmlmin = require('gulp-htmlmin');
 var concat = require('gulp-concat');
 var stripDebug = require('gulp-strip-debug');
 var uglify = require('gulp-uglify');
@@ -37,7 +37,7 @@ gulp.task('htmlpage', function () {
 
     gulp.src(htmlSrc)
             .pipe(changed(htmlDst))
-            .pipe(minifyHTML())
+            .pipe(htmlmin({collapseWhitespace: true, removeComments:true}))
             .pipe(gulp.dest(htmlDst));
 });
 
