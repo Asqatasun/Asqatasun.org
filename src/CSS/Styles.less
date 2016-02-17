@@ -1,0 +1,82 @@
+/**
+ * Font-size / line-height
+*/
+.my-font-size(@pxValue) {
+    @remValue: @pxValue / 10;
+    font-size: ~"@{pxValue}px"; font-size: ~"@{remValue}rem";
+}
+
+.my-line-height(@pxValue) {
+    @remValue: @pxValue / 10;
+    line-height: ~"@{pxValue}px"; line-height: ~"@{remValue}rem";
+}
+
+.my-font-size(@fontSize; @lineHeight) {
+    .my-font-size(@fontSize);
+    .my-line-height(@lineHeight);
+}
+
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#main {
+    margin: 0 auto;
+    width: 600px;
+    
+    h2 {
+        .my-font-size(22,24);
+    }
+    p, li {
+        /*.my-font-size(13,18);*/
+        .my-font-size(12,17);
+        /*.my-font-size(11,16);*/
+    }
+}
+abbr {
+    cursor: help;
+}
+
+h1 {
+    margin: 1em 0 1.5em ;
+    text-align: center;
+}
+
+h2 {
+    margin: 1em 0px 0.5em;
+}
+
+#hashtags {
+    .my-font-size(18);
+}
+
+#social-link {
+    text-align: center;
+    margin: 2em 0 0 0;
+}
+#social-link img {
+    width:80px; /* Max 120px  */
+}
+#social-link a {
+    margin: 0 0.7em;
+    opacity: 0.8;
+}
+#social-link a:hover {
+    opacity: 1;
+}
+#steps {
+    margin-top:2em;
+    li {
+        margin-bottom: 0.2em;
+    }
+}
+.block {
+    text-align: center;
+}
+
+footer {
+    font-size: small;
+    margin: 3em 0 2em;
+}
