@@ -13,6 +13,9 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    margin: 2em 0px 0.5em;
+}
 
 #top-navbar {
     background-color: #1B1F20;
@@ -67,4 +70,5 @@ h1 {
 
 footer {
     font-size: small;
+    margin: 3em 0 2em;
 }
