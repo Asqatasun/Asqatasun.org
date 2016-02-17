@@ -11,6 +11,7 @@ var stripDebug = require('gulp-strip-debug');
 var uglify = require('gulp-uglify');
 var autoprefix = require('gulp-autoprefixer');
 var minifyCSS = require('gulp-minify-css');
+var less = require('gulp-less');
 
 // JS hint task
 gulp.task('jshint', function () {
@@ -52,9 +53,10 @@ gulp.task('scripts', function () {
 
 // CSS concat, auto-prefix and minify
 gulp.task('styles', function () {
-    var mySrc = './src/CSS/*.css',
+    var mySrc = './src/CSS/*.less',
             myDst = './build/CSS/';
     gulp.src(mySrc)
+            .pipe(less())
             .pipe(changed(myDst))
             .pipe(concat('Styles.css'))
             .pipe(autoprefix('last 2 versions'))
@@ -62,7 +64,7 @@ gulp.task('styles', function () {
             .pipe(gulp.dest(myDst));
 });
 
-// Copy other files
+// Copy .htaccess
 gulp.task('copyfiles', function () {
     var mySrc = './src/.htaccess',
             myDst = './build/';
@@ -71,7 +73,7 @@ gulp.task('copyfiles', function () {
             .pipe(gulp.dest(myDst));
 });
 
-// Copy other files
+// Copy fonts
 gulp.task('copyfonts', function () {
     var mySrc = './src/Fonts/*',
             myDst = './build/Fonts/';
