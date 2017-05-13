@@ -1,15 +1,51 @@
+
+    #### Scan tools ##################################################
+    # https://observatory.mozilla.org/analyze.html?host=asqatasun.org
+    # https://securityheaders.io/?q=https://asqatasun.org
+    # https://cspvalidator.org/#url=https://asqatasun.org
+    ##################################################################
+
+
+# Security
 ######################################################################################
-#### Réecriture d'URL ################################################################
+    
+    # Don't allow any pages to be framed - Defends against CSRF
+    Header always set X-Frame-Options DENY
+
+    # prevent mime based attacks
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Turn on IE8-IE9 XSS prevention tools
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Content-Security-Policy (CSP)
+        # Header set Content-Security-Policy "default-src 'none';"
+
+    # HTTP Strict Transport Security (HSTS)   
+        # Header set Strict-Transport-Security: max-age=31536000
+        # ---> Only connect to this site via HTTPS for the next year (recommended)
+
+
+# User Privacy
 ######################################################################################
 
-	# Activation du moteur de réecriture
-	###########################################
-	RewriteEngine On
-    
-	# Forcer l'usage d'un seul domaine pour les URL avec ou sans www
-	#########################################################
-	# /!\ 	Forcer la redirection permanente (code HTTP 301)
-	# 		du sous-domaine (www.asqatasun.org)
-	# 		vers vers le domaine asqatasun.org
-	RewriteCond %{HTTP_HOST} ^www.asqatasun.org$ [NC]
-	RewriteRule ^(.*)   http://asqatasun.org/$1  [QSA,L,R=301]
+    # Referrer-Policy HTTP header
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+
+# RewriteRule
+######################################################################################
+
+    # Activate the rewrite engine
+    RewriteEngine On
+
+    # Redirect HTTP to HTTPS version
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*)  https://asqatasun.com/$1 [QSA,L,R=301] 
+
+    # Force the use of a single domain for URLs without www
+    RewriteCond %{HTTP_HOST} ^www.asqatasun.com$ [NC]
+    RewriteRule ^(.*)   https://asqatasun.com/$1 [QSA,L,R=301]
+
+
+
