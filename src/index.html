@@ -5,11 +5,12 @@
         <meta charset="utf-8" />
         <link href="CSS/Styles.css" rel='stylesheet' type='text/css'>
 
-        <!-- Reduce DNS lookup time for the forum and documentation by pre-resolving  -->
-        <link rel="dns-prefetch" href="//forum.asqatasun.org">
-        <link rel="dns-prefetch" href="//avatars.discourse.org">
-        <link rel="dns-prefetch" href="//doc.asqatasun.org">
-        <link rel="dns-prefetch" href="//stats.taqamaqa.com">
+        <!-- Reduce DNS lookup time for the forum, documentation and contrast-finder by pre-resolving  -->
+        <link rel="dns-prefetch" href="https://stats.asqatasun.org">
+        <link rel="dns-prefetch" href="https://forum.asqatasun.org">
+        <link rel="dns-prefetch" href="https://doc.asqatasun.org">
+        <link rel="dns-prefetch" href="https://contrast-finder.org">
+        <link rel="dns-prefetch" href="https://app.contrast-finder.org">
 
         <meta name="viewport" 	content="width=device-width, initial-scale=1" />
 
@@ -135,15 +136,18 @@
             _paq.push(["setDomains", ["*.Asqatasun.org","*.Asqatasun.com","*.Asqatasun.fr"]]);
             _paq.push(['trackPageView']);
             _paq.push(['enableLinkTracking']);
-            (function() {
-                var u="//stats.asqatasun.org/";
+            function loadPiwikAfterOnload(){
+                var u="https://stats.asqatasun.org/";
                 _paq.push(['setTrackerUrl', u+'piwik.php']);
                 _paq.push(['setSiteId', '6']);
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-            })();
+            }
+            if (window.addEventListener){ window.addEventListener("load", loadPiwikAfterOnload, false); }
+            else if (window.attachEvent){ window.attachEvent("onload", loadPiwikAfterOnload);           }
+            else                        { window.onload = loadPiwikAfterOnload();                       }    
         </script>
-        <noscript><p><img src="//stats.asqatasun.org/piwik.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+        <noscript><img src="https://stats.asqatasun.org/piwik.php?idsite=6" style="border:0;" alt="" /></noscript>
         <!-- End Piwik Code -->
 
 
